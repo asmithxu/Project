@@ -64,6 +64,7 @@ window.onload = function() {
     orderObject.name = nameValue
     orderObject.burgers = Number(burgerHTML.value)
     orderObject.drinks = drinkHTML.value
+    orderObject.delivered = false
 
 
 
