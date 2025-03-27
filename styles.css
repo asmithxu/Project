@@ -1,0 +1,92 @@
+body {
+    margin: 0;
+    font-family: "Open Sans", sans-serif;
+    /* background-color: rgb(4, 34, 74); */
+}
+div {
+    text-align: center;
+    height: 100vh;
+    display: grid;
+    grid-template-areas: 
+    "header header header header"
+    "sidebar content content content2"
+    "sidebar content content content2"
+    "sidebar content content content2"
+    "sidebar content content content2"
+    "footer footer footer footer";
+    grid-template-rows: [linename1] 100px [linename6] 100px;
+}
+
+header {
+    grid-area: header;
+    box-shadow: 0px 10px rgb(4, 34, 74);
+    background: linear-gradient(0deg, rgba(4,34,74,1) 0%, rgba(255,255,255,0) 30%);
+    z-index: 1;
+}
+
+aside {
+    display: block;
+    max-width: 200px;
+
+}
+
+#left-sidebar {
+    grid-area: sidebar;
+}
+
+#right-sidebar {
+    grid-area: content2;
+}
+
+main {
+    grid-area: content;
+    text-align: left;
+    padding: 20px;
+    background-color: rgb(8, 84, 183);
+    color: white;
+    font-size: 15px;
+    width: 70vw;
+    
+}
+
+footer {
+    grid-area: footer;
+    box-shadow: 0px -10px rgb(4, 34, 74);
+    border-top: 5px solid rgb(4,34,74);
+    background: linear-gradient(180deg, rgba(4,34,74,1) 0%, rgba(255,255,255,0) 30%);
+    height: 2vh;
+    z-index: 1;
+}
+
+/* styling */
+img[alt="brand logo"] {
+    width: 50px;
+}
+
+aside img {
+    width: 100px;
+}
+
+footer p{
+    margin-top: 1%;
+}
+
+main li {
+    line-height: 32px;
+}
+
+img[src="./sample/assets/CodeCrunchText.jpg"] {
+    width: 100%;
+    height: auto;
+}
+main header {
+    text-align: center;
+    background: none;
+    border: none;
+    box-shadow: none;
+}
+div.flex {
+    display: flex;
+    height: initial;
+    text-align: left;
+}

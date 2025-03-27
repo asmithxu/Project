@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Crew Crunch</title>
+    <link href="styles.css" rel="stylesheet"/>
+</head>
+<body>
+    <div>
+        <header>
+            <img src="./sample/assets/sampleLogo.png" alt="full logo"/>
+        </header>
+        <aside id="left-sidebar">
+            <h3>Student Resources</h3>
+            <a href="https://sidequests.onrender.com">
+                <figure>
+                    <img src="./sample/assets/sampleIcon.png" alt="Side Quests Link"/>
+                </figure>
+                <figcaption>Side Quests Comp-Sci Blog</figcaption> 
+            </a>
+
+            <a href="https://github.com/CodeCrew-CodeSchool">
+                <figure>
+                    <img src="./sample/assets/github.png" alt="Github Link"/>
+                </figure>
+                <figcaption>CodeSchool Github</figcaption> 
+            </a>
+
+            <a href="https://developer.mozilla.org/en-US/">
+                <figure>
+                    <img src="./sample/assets/MDN_Web_Docs_logo.svg.png" alt="MDN Docs Link"/>
+                </figure>
+                <figcaption>READ THE DOCS</figcaption> 
+            </a>
+        </aside>
+        <main>
+            <header>
+                <h1>Code Crunch</h1><p>Have a Bite, while you Code</p>
+            </header>
+            <div class="flex">
+                <img src="./sample/assets/CodeCrunchText.jpg" alt="Logo for Your New Page"/>
+            </div>
+        </main>
+        <aside id="right-sidebar">
+            <h3>Food Orders</h3>
+            <button id="prompt">Click Here First</button><br>
+            <button id="alert">Click Here Second</button>
+            <form id="foodOrders">
+                <label for="burgers">Number of Burgers:</label><br>
+                <input type="number" id="burgers">
+                <label for="drinks">Number of Drinks:</label><br>
+                <input type="number" id="drinks">
+                <button id="submitOrder">Submit Food Order</button>
+            </form>
+            <section class="orderItems" id="orderList"><p></p></section>
+            <button id="outputOrder">Order Output</button>
+        </aside>
+        <footer>
+            <p><img src="./sample/assets/sampleIcon.png" alt="brand logo"/> <span>Powered by CodeCrew. </span></p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
