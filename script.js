@@ -31,7 +31,7 @@ window.onload = function() {
         let orderListHTML = document.getElementById('orderList');
         // orderListHTML.innerHTML = ''; // Clear existing orders
     
-            let i = orderToRender.length-1
+            const i = orderToRender.length-1
             let burgerOrder = ""
             let burgerCount = 0
             for (let i = 0; i < orderToRender[orderToRender.length-1].burgers; i++){
@@ -50,28 +50,30 @@ window.onload = function() {
             orderElementHTML.className = "deliver"
             if (burgerCount <= 3 && drinkCount <= 3){
             
-            orderElementHTML.innerHTML = `${nameOrder}, ${burgerOrder}, ${drinkOrder} <button class="deliverButton" id="deliverButtonId">Deliver</button>`
+            orderElementHTML.innerHTML = `${nameOrder}, ${burgerOrder}, ${drinkOrder}`
+            let deliverButton = document.createElement("button")
+            deliverButton.innerText = "deliver"
+            deliverButton.addEventListener("click", function(event){
+                orderToRender[i].delivered = true
+                let parentElement = event.target.parentElement
+                parentElement.remove()
+            })
+            orderElementHTML.appendChild(deliverButton)
             }
             else if (burgerCount > 3 || drinkCount > 3){
           
-                orderElementHTML.innerHTML = `${nameOrder}, 🍔x${burgerCount}, 🥤x${drinkCount} <button class="deliverButton" id="deliverButtonId">Deliver</button>`
-
+                orderElementHTML.innerHTML = `${nameOrder}, 🍔x${burgerCount}, 🥤x${drinkCount}`
+                let deliverButton = document.createElement("button")
+            deliverButton.innerText = "deliver"
+            deliverButton.addEventListener("click", function(event){
+                orderToRender[i].delivered = true
+                let parentElement = event.target.parentElement
+                parentElement.remove()
+            })
+            orderElementHTML.appendChild(deliverButton)
             }
 
-            orderListHTML.appendChild(orderElementHTML);
-
-
-            let deliverButtonHTML =  document.getElementById("deliverButtonId")
-            deliverButtonHTML.addEventListener("click", function(){
-                let deliverItem = document.getElementsByClassName("deliver");
-                
-
-                for (let i = deliverItem.length - 1; i >= 0; i--) {
-                    deliverItem[i].remove();
-                    orderToRender[i].delivered = true
-                    console.log(orderToRender)
-                }
-            })
+            orderListHTML.appendChild(orderElementHTML);                
         
 }
 
@@ -126,10 +128,10 @@ window.onload = function() {
     for (i = 0; i < orderArray.length; i ++) {
         totalBurgers = totalBurgers + orderArray[i].burgers
         totalDrinks = totalDrinks + orderArray[i].drinks
-        if (totalDelivered = true) {
+        if (orderArray[i].delivered == true) {
             totalDelivered += 1
         }
-        else if (totalDelivered = false){
+        else if (orderArray[i].delivered == false){
             totalNotDelivered += 1
         }
     }
