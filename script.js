@@ -15,35 +15,51 @@ window.onload = function() {
         console.log(orderToRender)
         console.log(orderToRender[0].burgers)
 
-        let orderListHTML = document.getElementById('orderList');
-        orderListHTML.innerHTML = ''; // Clear existing orders
-    
-        for (let i = 0; i < orderToRender.length; i++) {
+        // let burgerOrder = ""
+        // let burgerCount = 0
+        // for (let i = 0; i < orderToRender[orderToRender.length-1].burgers; i++){
+        //     burgerOrder += "🍔"
+        //     burgerCount += 1
+        // }
+        // let drinkOrder = ""
+        // let drinkCount = 0
+        // for (let i = 0; i < orderToRender[orderToRender.length-1].drinks; i++){
+        //     drinkOrder += "🥤"
+        //     drinkCount += 1
+        // }
 
+        let orderListHTML = document.getElementById('orderList');
+        // orderListHTML.innerHTML = ''; // Clear existing orders
+    
+            let i = orderToRender.length-1
             let burgerOrder = ""
             let burgerCount = 0
-            for (let i = 0; i < orderToRender[0].burgers; i++){
+            for (let i = 0; i < orderToRender[orderToRender.length-1].burgers; i++){
                 burgerOrder += "🍔"
                 burgerCount += 1
             }
             let drinkOrder = ""
             let drinkCount = 0
-            for (let i = 0; i < orderToRender[0].drinks; i++){
+            for (let i = 0; i < orderToRender[orderToRender.length-1].drinks; i++){
                 drinkOrder += "🥤"
                 drinkCount += 1
             }
 
-            const orderElementHTML = document.createElement("section");
-            orderElementHTML.className = "deliver"
             let nameOrder = orderToRender[i].name
+            let orderElementHTML = document.createElement("section");
+            orderElementHTML.className = "deliver"
             if (burgerCount <= 3 && drinkCount <= 3){
+            
             orderElementHTML.innerHTML = `${nameOrder}, ${burgerOrder}, ${drinkOrder} <button class="deliverButton" id="deliverButtonId">Deliver</button>`
             }
-            else {
+            else if (burgerCount > 3 || drinkCount > 3){
+          
                 orderElementHTML.innerHTML = `${nameOrder}, 🍔x${burgerCount}, 🥤x${drinkCount} <button class="deliverButton" id="deliverButtonId">Deliver</button>`
 
             }
+
             orderListHTML.appendChild(orderElementHTML);
+
 
             let deliverButtonHTML =  document.getElementById("deliverButtonId")
             deliverButtonHTML.addEventListener("click", function(){
@@ -56,9 +72,8 @@ window.onload = function() {
                     console.log(orderToRender)
                 }
             })
-
         
-    }}
+}
 
     // invoke functions
     setCopyrightYear();
